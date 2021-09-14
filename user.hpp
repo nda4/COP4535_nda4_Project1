@@ -3,6 +3,9 @@
 #include <string>
 #include <iostream>
 #include <fstream>
+#include <stdio.h>
+#include <stdlib.h>
+#include <time.h>
 
 class User{
     private:
@@ -16,11 +19,13 @@ class User{
         std::string getUsername();
         std::string getPasscode();
 
-        void writeRawData(std::string fileName);
+        void writeRawData();
         std::string generatePasscode();
         void encryptData(std::string fileName, std::string key);
 
         User(std::string username, std::string passcode);
+        User();
+
 
         
 };

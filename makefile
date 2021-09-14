@@ -14,6 +14,7 @@ run :
 clean :
 	rm *.o
 	rm *.exe
+	rm rawdata.txt
 
 
 

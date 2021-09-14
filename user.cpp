@@ -1,6 +1,7 @@
 #include "user.hpp"
 
-
+User::User(){
+}
 
 User::User(std::string username, std::string passcode){
     this->username = username;
@@ -26,6 +27,30 @@ std::string User::getPasscode(){
 }
 
 
-void User::writeRawData(std::string fileName){
-    std::ifstream()
+void User::writeRawData(){
+    std::ifstream readFile;
+    std::ofstream writeFile;
+    readFile.open("names.txt");
+    writeFile.open("rawdata.txt");
+
+    std::string name, passscode;
+    while(!readFile.eof()){
+        readFile >> name;
+        readFile.ignore(256, '\n');
+        passcode = generatePasscode();
+        writeFile << name << ' ' << passcode << '\n';
+    }
+
+
+
+    readFile.close();
+    writeFile.close();
+}
+
+std::string User::generatePasscode(){
+    static const char letters[] = "abcdefghijklmnopqrstuvwxyz";
+    std::string password;
+    for(int i = 0; i < 9; i++)
+        password+=(letters[(rand() % 26)]);
+    return password;
 }
