@@ -22,6 +22,7 @@ class User{
         void writeRawData();
         std::string generatePasscode();
         void encryptData(std::string fileName, std::string key);
+        std::string VNCipher(std::string passcode, std::string key);
 
         User(std::string username, std::string passcode);
         User();

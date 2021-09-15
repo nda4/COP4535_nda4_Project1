@@ -13,6 +13,7 @@
 void testAssignedUser(std::string username, std::string passcode);
 void testWriteRawData();
 void testGeneratePasscode();
+void testEncryptData();
 
 int main(){
     std::cout << ("Lol this actuaally barely works\n");
@@ -20,6 +21,7 @@ int main(){
     testAssignedUser("testName", "testCode");
     testGeneratePasscode();
     testWriteRawData();
+    testEncryptData();
     //hashTable.cpp Tests
 
 }
@@ -94,3 +96,48 @@ void testWriteRawData(){
         std::cout << "Names.txt and RawData.txt names match test :: FAILED\n";
 }
 
+void testEncryptData(){
+    User testUser;
+    testUser.encryptData("rawdata.txt", "jones");
+    std::ifstream otest;
+    otest.open("encrypteddata.txt");
+
+    if(otest.is_open())
+        std::cout << "Opened EcnrypetedData test PASSED\n";
+    else
+        std::cout << "Opened EncryptedData test FAILED\n";
+    std::string encryptName1 = "SMITH";
+    std::string encryptName2 = "JOHNSON";
+    std::string rawPasscode1 = "kyhiddqsc";
+    std::string rawPasscode2 = "dxrjmowfr";
+
+    std::string tester;
+
+
+    //Simple test to make sure rawNames = Encrypt Names and
+    //passwords DO NOT match.
+    otest >> tester;
+    if(tester == encryptName1)
+        std::cout << "Raw Name1 == Encrypt Name1 test :: PASSED\n";
+    else
+        std::cout << "Raw Name1 == Encrypt Name1 test :: FAILED\n";
+    tester.clear();
+    otest >> tester;
+    if(tester == rawPasscode1)
+        std::cout << "RawPasscode1 DOES NOT match EncryptPasscode1 test :: FAILED\n";
+    else
+        std::cout << "RawPasscode1 DOES NOT match EncryptPasscode1 test :: PASSED\n";
+    tester.clear();
+    otest >> tester;
+    if(tester == encryptName2)
+        std::cout << "Raw Name2 == Encrypt Name1 test :: PASSED\n";
+    else
+        std::cout << "Raw Name2 == Encrypt Name1 test :: FAILED\n";
+    tester.clear();
+    otest >> tester;
+    if(tester == rawPasscode2)
+        std::cout << "RawPasscode2 DOES NOT match EncryptPasscode1 test :: FAILED\n";
+    else
+        std::cout << "RawPasscode2 DOES NOT match EncryptPasscode1 test :: PASSED\n";
+    
+}

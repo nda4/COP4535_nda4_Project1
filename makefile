@@ -15,7 +15,7 @@ clean :
 	rm *.o
 	rm *.exe
 	rm rawdata.txt
-
+	rm encrypteddata.txt;
 
 
 testDriven.exe : testDriven.o user.o hashTable.o
