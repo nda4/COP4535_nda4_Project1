@@ -14,6 +14,7 @@ void testAssignedUser(std::string username, std::string passcode);
 void testWriteRawData();
 void testGeneratePasscode();
 void testEncryptData();
+void testHashTable();
 
 int main(){
     std::cout << ("Lol this actuaally barely works\n");
@@ -22,6 +23,7 @@ int main(){
     testGeneratePasscode();
     testWriteRawData();
     testEncryptData();
+    testHashTable();
     //hashTable.cpp Tests
 
 }
@@ -140,4 +142,10 @@ void testEncryptData(){
     else
         std::cout << "RawPasscode2 DOES NOT match EncryptPasscode1 test :: PASSED\n";
     
+}
+
+void testHashTable(){
+    hashTable testTable("encrypteddata.txt");
+    std::cout << "TEST TABLE PASSED \n\n";
+    testTable.showAll();
 }
