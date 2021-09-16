@@ -35,8 +35,9 @@ void User::writeRawData(){
     while(!readFile.eof()){
         readFile >> name;
         readFile.ignore(256, '\n');
+        writeFile << '\n';
         passcode = generatePasscode();
-        writeFile << name << ' ' << passcode << '\n';
+        writeFile << name << ' ' << passcode;
     }
 
     readFile.close();
