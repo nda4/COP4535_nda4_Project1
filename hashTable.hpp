@@ -9,8 +9,9 @@ struct Node{
     Node(std::string username, std::string passcode){
         this->username = username;
         this->passcode = passcode;
+        this->nextNode = nullptr;
     }
-    Node* nextNode;
+    Node* nextNode = nullptr;
 };
 
 class hashTable{

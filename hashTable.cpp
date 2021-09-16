@@ -4,6 +4,9 @@ hashTable::hashTable(std::string filename){
     std::ifstream rfile;
     rfile.open(filename);
     int index;
+    for(int i = 0; i < TABLESIZE; i++){
+        table[i] = nullptr;
+    }
     while(!rfile.eof()){
         rfile >> username;
         index = hash(username);
@@ -15,6 +18,7 @@ hashTable::hashTable(std::string filename){
 int hashTable::hash(std::string id){
     std::string alphabet = "ABCDEFGHIJKLMONOPQRSTUVWXYZ";
     int index = alphabet.find(id.at(0));
+    //std::cout << "HASH NAME PLUS VALUE == " << id << '\n' << index%TABLESIZE << std::endl;
     return index % TABLESIZE;
 }
 
@@ -43,10 +47,9 @@ void hashTable::showAll()
   for(int i = 0; i < TABLESIZE;i++)
    {
     Node * current = table[i];
-    while(current != nullptr)
-     {
+    while(current != nullptr){
         std::cout << current->username << std::endl;
         current = current->nextNode;
-     }
+        }
   }
 }
