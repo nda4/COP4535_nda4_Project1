@@ -1,6 +1,7 @@
 To run, simply use Linux console and type "make"
 This will run test.cpp's main funtion. I chose to pick random names and passcodes by hand, but it would be somewhat easy to write a method that randomly selects names and passcodes to "test" in the hash method. The output looks correct, and it is run through a function that uses classes and most methods.
 
+A LINK TO UML DIAGRAM: https://lucid.app/lucidchart/91c05ac1-96c0-44d9-a763-0c4a88ed07e6/edit?invitationId=inv_5587be75-0707-43d7-a04f-46cedef00915&page=0_0#
 
 A few notes:
     You may notice encrypteddata.txt has a newline on firstline. I had to do that to fix an error that caused the FINAL name to be printed twice in encrypteddata.txt. I couldn't think of another fix at the time.
