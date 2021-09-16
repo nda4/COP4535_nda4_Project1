@@ -1,7 +1,6 @@
 #include "user.hpp"
 
-User::User(){
-}
+User::User(){}
 
 User::User(std::string username, std::string passcode){
     this->username = username;
@@ -40,8 +39,6 @@ void User::writeRawData(){
         writeFile << name << ' ' << passcode << '\n';
     }
 
-
-
     readFile.close();
     writeFile.close();
 }
@@ -55,7 +52,7 @@ std::string User::generatePasscode(){
     return password;
 }
 
-void User::encryptData(std::string filename, std::string key){
+void User::encryptData(std::string key){
     std::ifstream readFile;
     std::ofstream writeFile;
     readFile.open("rawdata.txt");  

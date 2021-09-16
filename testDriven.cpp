@@ -100,7 +100,7 @@ void testWriteRawData(){
 
 void testEncryptData(){
     User testUser;
-    testUser.encryptData("rawdata.txt", "jones");
+    testUser.encryptData("jones");
     std::ifstream otest;
     otest.open("encrypteddata.txt");
 
@@ -147,5 +147,5 @@ void testEncryptData(){
 void testHashTable(){
     hashTable testTable("encrypteddata.txt");
     std::cout << "TEST TABLE PASSED \n\n";
-    testTable.showAll();
+    //testTable.showAll();
 }

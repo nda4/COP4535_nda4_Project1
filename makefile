@@ -1,15 +1,9 @@
-
-
-Project1.exe : test.o
-	g++ test.o -o Project1.exe
-
-test.o :
-	g++ -Wall -c test.cpp
-
-
-
-run :
+Project1.exe : test.o user.o hashTable.o
+	g++ test.o -o Project1.exe user.cpp hashTable.cpp
 	./Project1.exe
+
+test.o : user.o hashTable.o
+	g++ -Wall -c test.cpp user.cpp hashTable.cpp
 
 clean :
 	rm *.o
